@@ -1,6 +1,6 @@
 #include <iostream>
-#include "DynamicArray.h"
-#include "LinkedList.h"
+#include "based_struct\DynamicArray.h"
+#include "based_struct\LinkedList.h"
 #include <exception>
 #include <typeinfo>
 #include <iostream>
