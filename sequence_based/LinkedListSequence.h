@@ -23,6 +23,10 @@ public:
 		this->SetName("LinkedList");
 		list = new LinkedList<T>(*List.list);
 	}
+	~LinkedListSequence()
+	{
+		delete[] list;
+	}
 
 	T Get(int Index)
 	{

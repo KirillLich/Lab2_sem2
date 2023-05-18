@@ -23,6 +23,10 @@ public:
 		this->SetName("DynamicArray");
 		arrayS = new DynamicArray<T>(*Array.arrayS);
 	}
+	~ArraySequence()
+	{
+		delete[] arrayS;
+	}
 
 	T GetFirst()
 	{

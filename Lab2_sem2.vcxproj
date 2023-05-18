@@ -147,6 +147,7 @@
     <ClInclude Include="based_struct\Sequence.h" />
     <ClInclude Include="sequence_based\ArraySequence.h" />
     <ClInclude Include="sequence_based\LinkedListSequence.h" />
+    <ClInclude Include="tests\DynamicArrayTests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

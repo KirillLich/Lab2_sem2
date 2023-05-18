@@ -26,8 +26,16 @@ public:
 	DynamicArray(size_t size) 
 	{
 		arr = new T[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			arr[i] = 0;
+		}
 		lenght = size;
 		flags = new bool[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			flags[i] = false;
+		}
 	};
 
 	~DynamicArray()
@@ -76,6 +84,7 @@ public:
 			newArr[i] = arr[i];
 			newFlags[i] = flags[i];
 		}
+		if(NewSize>lenght)
 		for (int i = 0; i < NewSize-lenght; i++)
 		{
 			newFlags[lenght + i] = false;
