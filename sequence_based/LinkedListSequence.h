@@ -16,12 +16,16 @@ public:
 	LinkedListSequence()
 	{
 		this->SetName("LinkedList");
-		list = nullptr;
+		list = new LinkedList<T>;
 	}
 	LinkedListSequence(const LinkedListSequence<T>& List)
 	{
 		this->SetName("LinkedList");
 		list = new LinkedList<T>(*List.list);
+	}
+	~LinkedListSequence()
+	{
+		delete list;
 	}
 
 	T Get(int Index)
@@ -38,10 +42,9 @@ public:
 	}
 	Sequence<T>* GetSubSequence(int startIndex, int endIndex)
 	{
-		LinkedListSequence<T>* listS = new LinkedListSequence<T>;
-		listS->list = new LinkedList<T>;
-		*(listS->list) = this->list->GetSubList(startIndex, endIndex);
-		return listS;
+		LinkedListSequence<T>* listSPtr = new LinkedListSequence<T>;
+		listSPtr->list = this->list->GetSubList(startIndex, endIndex);
+		return listSPtr;
 	}
 	size_t GetLenght()
 	{
@@ -63,7 +66,7 @@ public:
 	Sequence<T>* Concat(LinkedListSequence<T>* List)
 	{
 		LinkedListSequence<T>* listS = new LinkedListSequence<T>;
-		listS->list = this->list->Concat(List->list);
+		listS->list = new LinkedList<T>(this->list->Concat(*List->list));
 		return listS;
 	}
 };

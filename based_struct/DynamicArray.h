@@ -26,8 +26,16 @@ public:
 	DynamicArray(size_t size) 
 	{
 		arr = new T[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			arr[i] = 0;
+		}
 		lenght = size;
 		flags = new bool[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			flags[i] = false;
+		}
 	};
 
 	~DynamicArray()
@@ -39,12 +47,12 @@ public:
 	{
 		if (index < 0 || index >= lenght)
 		{
-			std::cerr << "Index is out of range. Index must be in [0, " << lenght << "] interval.\n";
+			//std::cerr << "Index is out of range. Index must be in [0, " << lenght << "] interval.\n";
 			throw std::out_of_range("IndexOutOfRange");
 		}
 		if (!flags[index])
 		{
-			std::cerr << "There is no data by this index\n";
+			//std::cerr << "There is no data by this index\n";
 			throw std::out_of_range("IndexOutOfRange");
 		}
 		return arr[index];
@@ -59,7 +67,7 @@ public:
 	{
 		if (index < 0 || index >= lenght)
 		{
-			std::cerr << "Index is out of range. Index must be in [0, " << lenght << "] interval.\n";
+			//std::cerr << "Index is out of range. Index must be in [0, " << lenght << "] interval.\n";
 			throw std::out_of_range("IndexOutOfRange");
 			return;
 		}
@@ -76,6 +84,7 @@ public:
 			newArr[i] = arr[i];
 			newFlags[i] = flags[i];
 		}
+		if(NewSize>lenght)
 		for (int i = 0; i < NewSize-lenght; i++)
 		{
 			newFlags[lenght + i] = false;
@@ -102,6 +111,12 @@ public:
 			}
 		}
 	};
+
+	T& operator[](int i)
+	{
+		this->Get(i);
+		return arr[i];
+	}
 };
 
 #endif

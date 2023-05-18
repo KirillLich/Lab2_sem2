@@ -11,7 +11,7 @@ public:
 	ArraySequence()
 	{
 		this->SetName("DynamicArray");
-		arrayS = nullptr;
+		arrayS = new DynamicArray<T>(0);
 	}
 	ArraySequence(T* Items, int count)
 	{
@@ -23,6 +23,10 @@ public:
 		this->SetName("DynamicArray");
 		arrayS = new DynamicArray<T>(*Array.arrayS);
 	}
+	~ArraySequence()
+	{
+		delete arrayS;
+	}
 
 	T GetFirst()
 	{
@@ -30,7 +34,7 @@ public:
 	};
 	T GetLast()
 	{
-		return arrayS->Get(arrayS->GetSize());
+		return arrayS->Get(arrayS->GetSize()-1);
 	};
 	T Get(int Index)
 	{
