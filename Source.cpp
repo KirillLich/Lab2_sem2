@@ -1,10 +1,20 @@
 #include <iostream>
 #include "based_struct\DynamicArray.h"
 #include "based_struct\LinkedList.h"
+#include "sequence_based/LinkedListSequence.h"
+#include "sequence_based/ArraySequence.h"
 #include <exception>
 #include <typeinfo>
 #include <iostream>
 //using namespace std;
+
+void printArr(ArraySequence<int> arr)
+{
+	for (size_t i = 0; i < arr.GetLenght(); i++)
+	{
+		std::cout << arr.Get(i) << " ";
+	}
+}
 
 int main()
 {
@@ -34,10 +44,10 @@ int main()
 	}
 	return 0;*/
 	int arr[3] = { 1,2,3 };
-	LinkedList<int> list(arr, 3);
-	LinkedList<int>doubledList = list.Concat(list);
-	/*list.Append(5);
-	list.Prepend(-1);
-	list.InsertAt(10, 2);*/
+	ArraySequence<int> arrS(arr, 3);
+	arrS.Append(3);
+	arrS.Prepend(-1);
+	arrS.InsertAt(10, 1);
+	printArr(arrS);
 	return 0;
 }

@@ -142,8 +142,11 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DynamicArray.h" />
-    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="based_struct\DynamicArray.h" />
+    <ClInclude Include="based_struct\LinkedList.h" />
+    <ClInclude Include="based_struct\Sequence.h" />
+    <ClInclude Include="sequence_based\ArraySequence.h" />
+    <ClInclude Include="sequence_based\LinkedListSequence.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

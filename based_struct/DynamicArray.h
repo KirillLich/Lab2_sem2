@@ -30,21 +30,6 @@ public:
 		flags = new bool[size];
 	};
 
-	DynamicArray(const DynamicArray<T>& oldArray)
-	{
-		lenght = oldArray.GetSize();
-		arr = new T[lenght];
-		flags = new bool[lenght];
-		for (size_t i = 0; i < lenght; i++)
-		{
-			if (oldArray.flags[i])
-			{
-				arr[i] = oldArray[i];
-				flags[i] = true;
-			}
-		}
-	};
-
 	~DynamicArray()
 	{
 		delete[] arr;
@@ -64,7 +49,7 @@ public:
 		}
 		return arr[index];
 	};
-
+	
 	size_t GetSize()
 	{
 		return lenght;
@@ -100,6 +85,22 @@ public:
 		delete[] flags;
 		arr = newArr;
 		flags = newFlags;
+	};
+	
+	DynamicArray(const DynamicArray<T>& oldArray)
+	{
+		oldArray.lenght;
+		lenght = oldArray.lenght;
+		arr = new T[lenght];
+		flags = new bool[lenght];
+		for (size_t i = 0; i < lenght; i++)
+		{
+			if (oldArray.flags[i])
+			{
+				arr[i] = oldArray.arr[i];
+				flags[i] = true;
+			}
+		}
 	};
 };
 
