@@ -34,6 +34,6 @@ int main()
 	array[3] = 4;
 
 	ArraySequence<int> listD(array, 4);
-	delete[] array;
+	delete[] array; 
 	return 0;
 }
